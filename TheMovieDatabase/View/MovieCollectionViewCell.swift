@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import AlamofireImage
 
 class MovieCollectionViewCell: UICollectionViewCell {
 
+    @IBOutlet weak var imageContainer: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
@@ -18,9 +20,18 @@ class MovieCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
 
-    func updateCellData(title: String, releaseDate: String, overview: String) {
+    func updateCellData(image: String, title: String, releaseDate: String, overview: String) {
         titleLabel.text = title
         releaseDateLabel.text = releaseDate
-        overviewLabel.text = overview
+        overviewLabel.text = overview != "" ? overview : "Sin descripción".localized
+
+        let url = URL(string: image)!
+        let placeholderImage = UIImage(named: "ImagePlaceholder")!
+
+        imageContainer.af_setImage(
+            withURL: url,
+            placeholderImage: placeholderImage,
+            imageTransition: .crossDissolve(0.2)
+        )
     }
 }

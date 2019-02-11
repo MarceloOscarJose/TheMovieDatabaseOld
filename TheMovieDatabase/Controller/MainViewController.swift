@@ -8,14 +8,17 @@
 
 import UIKit
 import PXStickyHeaderCollectionView
+import PureLayout
 
 class MainViewController: UIViewController {
 
     // Collection view ids
-    let KCellId = "collectionCell"
-    let KCellClass = "CollectionViewCell"
+    let KCellId = "movieCollectionCell"
+    let KCellClass = "MovieCollectionViewCell"
 
     // UI Vars
+    let cellLeftRightPadding: CGFloat = 10.0
+    let cellBottomPadding: CGFloat = 15.0
     var containerView: PXStickyHeaderCollectionView!
 
     // Data vars
@@ -28,33 +31,35 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.translatesAutoresizingMaskIntoConstraints = false
-
         getMovies()
     }
 
     func setupControls() {
         containerView = PXStickyHeaderCollectionView(initHeaderHeight: 200, minHeaderHeight: 50, headerView: UIView())
         self.view.addSubview(containerView)
+        containerView.autoPinEdge(.top, to: .top, of: self.view, withOffset: 0)
+        containerView.autoPinEdge(.left, to: .left, of: self.view, withOffset: 0)
+        containerView.autoPinEdge(.right, to: .right, of: self.view, withOffset: 0)
+        containerView.autoPinEdge(.bottom, to: .bottom, of: self.view, withOffset: 0)
 
-        let margins = view.layoutMarginsGuide
-        containerView.topAnchor.constraint(equalTo: margins.topAnchor, constant: 0).isActive = true
-        containerView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: 0).isActive = true
-        containerView.leadingAnchor.constraint(equalTo: margins.leadingAnchor, constant: 0).isActive = true
-        containerView.trailingAnchor.constraint(equalTo: margins.trailingAnchor, constant: 0).isActive = true
-
-        containerView.collectionView.register(UINib(nibName: KCellClass, bundle: Bundle(for: MainViewController.self)), forCellWithReuseIdentifier: KCellId)
+        let cellNib = UINib(nibName: KCellClass, bundle: Bundle(for: MainViewController.self))
+        containerView.collectionView.register(cellNib, forCellWithReuseIdentifier: KCellId)
         containerView.delegate = self
         containerView.dataSource = self
     }
 
     func setupConstraints() {
         
+        /*NSLayoutConstraint(item: containerView, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: containerView, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: containerView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: containerView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: 0).isActive = true*/
     }
 
     func getMovies() {
         let movieModel = MovieModel()
         movieModel.getUpcommingMovies(responseHandler: { (movies) in
+            self.moviesData = movies
             self.setupControls()
             self.setupConstraints()
         }) { (error) in
@@ -80,21 +85,18 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KCellId, for: indexPath) as! MovieCollectionViewCell
 
         let movieData = self.moviesData[indexPath.item]
-        cell.updateCellData(title: movieData.title, releaseDate: movieData.releaseDate, overview: movieData.overview)
+        cell.updateCellData(image: movieData.poster, title: movieData.title, releaseDate: movieData.releaseDate, overview: movieData.overview)
 
         return cell
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let paddingSpace = CGFloat(32.0)
-        let availableWidth = view.frame.width - paddingSpace
-
-        let widthPerItem = availableWidth / 4
-        return CGSize(width: widthPerItem, height: 100)
+        let widthPerItem = self.view.frame.width - (self.cellLeftRightPadding * 2)
+        return CGSize(width: widthPerItem, height: 200)
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 8, bottom: 15, right: 8)
+        return UIEdgeInsets(top: 0, left: self.cellLeftRightPadding, bottom: 15, right: self.cellLeftRightPadding)
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

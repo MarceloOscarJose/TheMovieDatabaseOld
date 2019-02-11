@@ -18,14 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Main" translatesAutoresizingMaskIntoConstraints="NO" id="a6E-MS-oDt">
-                                <rect key="frame" x="109.5" y="264.5" width="156" height="138"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="wh3-i0-1gJ">
+                                <rect key="frame" x="114.5" y="258" width="146" height="151"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.031828895211219788" green="0.10823110491037369" blue="0.14344328641891479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0053488952109999998" green="0.82101720570000003" blue="0.4675055742" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="a6E-MS-oDt" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Ffp-4X-u09"/>
-                            <constraint firstItem="a6E-MS-oDt" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="OFj-aY-f32"/>
+                            <constraint firstItem="wh3-i0-1gJ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="TKk-nX-ePu"/>
+                            <constraint firstItem="wh3-i0-1gJ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="veM-xK-F43"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -36,6 +36,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Main" width="156" height="138"/>
+        <image name="LaunchScreen" width="146" height="151"/>
     </resources>
 </document>

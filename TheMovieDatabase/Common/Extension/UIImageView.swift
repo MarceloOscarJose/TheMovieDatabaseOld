@@ -6,7 +6,7 @@
 //  Copyright © 2019 Marcelo Oscar José. All rights reserved.
 //
 
-import UIKit
+import AlamofireImage
 
 extension UIImageView {
 

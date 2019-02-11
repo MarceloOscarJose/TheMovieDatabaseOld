@@ -7,17 +7,40 @@
 //
 
 import UIKit
+import PureLayout
 
 class MainViewController: UIViewController {
 
+    let containerView: UIView = {
+        let containerView = UIView.newAutoLayout()
+        return containerView
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.translatesAutoresizingMaskIntoConstraints = false
 
+        // Setup UI
+        setupControls()
+        setupConstraints()
+
+        getMovies()
+    }
+
+    func setupControls() {
+        
+    }
+
+    func setupConstraints() {
+        
+    }
+
+    func getMovies() {
         let movieModel = MovieModel()
         movieModel.getUpcommingMovies(responseHandler: { (movies) in
             print(movies)
         }) { (error) in
-            print(error)
+            print(error!)
         }
     }
 }

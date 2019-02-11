@@ -20,22 +20,24 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHv-DH-Nr1">
-                        <rect key="frame" x="0.0" y="0.0" width="583" height="186"/>
+                        <rect key="frame" x="8" y="8" width="567" height="170"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IVh-yC-L6C">
-                                <rect key="frame" x="0.0" y="0.0" width="115" height="186"/>
+                                <rect key="frame" x="0.0" y="0.0" width="115" height="170"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="115" id="JSe-58-rRy"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Fate/stay night: Heaven’s Feel II. lost butterfly" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZeN-We-nMk">
-                                <rect key="frame" x="123" y="8" width="452" height="21.5"/>
+                                <rect key="frame" x="123" y="8" width="436" height="21.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="October 5, 2018" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OkY-Oe-skr">
-                                <rect key="frame" x="123" y="29.5" width="452" height="20"/>
+                                <rect key="frame" x="123" y="29.5" width="436" height="20"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="gZJ-gF-c8R"/>
                                 </constraints>
@@ -44,7 +46,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8w-rm-7jx">
-                                <rect key="frame" x="123" y="57.5" width="452" height="120.5"/>
+                                <rect key="frame" x="123" y="57.5" width="436" height="104.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="tEA-eF-INb"/>
                                 </constraints>
@@ -52,15 +54,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
+                                <color key="shadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="OkY-Oe-skr" firstAttribute="leading" secondItem="IVh-yC-L6C" secondAttribute="trailing" constant="8" id="0gM-Fi-uFn"/>
                             <constraint firstAttribute="trailing" secondItem="Y8w-rm-7jx" secondAttribute="trailing" constant="8" id="4Ui-pH-AUc"/>
                             <constraint firstItem="IVh-yC-L6C" firstAttribute="top" secondItem="hHv-DH-Nr1" secondAttribute="top" id="BoC-3v-hgb"/>
                             <constraint firstAttribute="trailing" secondItem="OkY-Oe-skr" secondAttribute="trailing" constant="8" id="JcM-WE-0lf"/>
-                            <constraint firstAttribute="bottom" secondItem="Y8w-rm-7jx" secondAttribute="bottom" constant="8" id="V0c-J5-hGu"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Y8w-rm-7jx" secondAttribute="bottom" constant="8" id="V0c-J5-hGu"/>
                             <constraint firstItem="Y8w-rm-7jx" firstAttribute="leading" secondItem="IVh-yC-L6C" secondAttribute="trailing" constant="8" id="b9H-uw-blt"/>
                             <constraint firstAttribute="bottom" secondItem="IVh-yC-L6C" secondAttribute="bottom" id="crh-j8-3mr"/>
                             <constraint firstItem="ZeN-We-nMk" firstAttribute="leading" secondItem="IVh-yC-L6C" secondAttribute="trailing" constant="8" id="dwu-bS-TBh"/>
@@ -74,14 +76,15 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="hHv-DH-Nr1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="9zV-rW-6e3"/>
-                <constraint firstAttribute="trailing" secondItem="hHv-DH-Nr1" secondAttribute="trailing" id="RzG-lv-Fzk"/>
-                <constraint firstItem="hHv-DH-Nr1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="UYq-Nb-uIk"/>
-                <constraint firstAttribute="bottom" secondItem="hHv-DH-Nr1" secondAttribute="bottom" id="VRS-Uh-fyE"/>
+                <constraint firstItem="hHv-DH-Nr1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="9zV-rW-6e3"/>
+                <constraint firstAttribute="trailing" secondItem="hHv-DH-Nr1" secondAttribute="trailing" constant="8" id="RzG-lv-Fzk"/>
+                <constraint firstItem="hHv-DH-Nr1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="UYq-Nb-uIk"/>
+                <constraint firstAttribute="bottom" secondItem="hHv-DH-Nr1" secondAttribute="bottom" constant="8" id="VRS-Uh-fyE"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="583" height="186"/>
             <connections>
+                <outlet property="containerView" destination="hHv-DH-Nr1" id="KJI-KH-tAB"/>
                 <outlet property="imageContainer" destination="IVh-yC-L6C" id="5hT-DT-70D"/>
                 <outlet property="overviewLabel" destination="Y8w-rm-7jx" id="goy-Ra-eFE"/>
                 <outlet property="releaseDateLabel" destination="OkY-Oe-skr" id="ghc-Nl-oo8"/>

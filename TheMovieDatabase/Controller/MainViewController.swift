@@ -18,7 +18,6 @@ class MainViewController: UIViewController {
 
     // UI Vars
     let cellTopPadding: CGFloat = 20.0
-    let cellLeftRightPadding: CGFloat = 10.0
     let cellBottomPadding: CGFloat = 15.0
     let minHeaderHeight: CGFloat = 70
     let initialHeaderHeight: CGFloat = 170
@@ -50,20 +49,11 @@ class MainViewController: UIViewController {
         containerView.dataSource = self
     }
 
-    func setupConstraints() {
-        
-        /*NSLayoutConstraint(item: containerView, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: containerView, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: containerView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: containerView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1, constant: 0).isActive = true*/
-    }
-
     func getMovies() {
         let movieModel = MovieModel()
         movieModel.getUpcommingMovies(responseHandler: { (movies) in
             self.moviesData = movies
             self.setupControls()
-            self.setupConstraints()
         }) { (error) in
             print(error!)
         }
@@ -93,15 +83,21 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let widthPerItem = self.view.frame.width - (self.cellLeftRightPadding * 2)
+        let widthPerItem = self.view.frame.width
         return CGSize(width: widthPerItem, height: 200)
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: cellTopPadding, left: self.cellLeftRightPadding, bottom: 15, right: self.cellLeftRightPadding)
+        return UIEdgeInsets(top: cellTopPadding, left: 0, bottom: self.cellBottomPadding, right: 0)
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 8
+    }
+
+    public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.row == self.moviesData.count - 1 {
+            print("Debería refrescar más datos")
+        }
     }
 }

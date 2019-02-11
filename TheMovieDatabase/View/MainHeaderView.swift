@@ -13,7 +13,12 @@ class MainHeaderView: UIView {
 
     let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
+        searchBar.isTranslucent = false
+        searchBar.placeholder = "Buscar películas y series"
         searchBar.barTintColor = UIColor.primaryColor
+        searchBar.backgroundColor = UIColor.primaryColor
+        searchBar.tintColor = UIColor.primaryColor
+        searchBar.layer.borderWidth = 1
         searchBar.layer.borderColor = UIColor.primaryColor.cgColor
         return searchBar
     }()

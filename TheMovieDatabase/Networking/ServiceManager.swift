@@ -23,7 +23,7 @@ class ServiceManager: NSObject {
         params["api_key"] = ConfigManager.sharedInstance.apiKey as AnyObject
         params["language"] = "es-ES" as AnyObject
 
-        if let finalURL = URL(string: "\(ConfigManager.sharedInstance.apiKey)\(url)") {
+        if let finalURL = URL(string: "\(ConfigManager.sharedInstance.baseURL)\(url)") {
             self.useService(method: .get, url: finalURL, paramaters: params, headers: headers, responseHandler: responseHandler, errorHandler: errorHandler)
         }
     }

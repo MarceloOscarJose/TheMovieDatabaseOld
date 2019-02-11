@@ -24,6 +24,7 @@
 		9CFCA7092211404100DC64DD /* MovieModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFCA7082211404100DC64DD /* MovieModel.swift */; };
 		9CFCA70B221143E400DC64DD /* MovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFCA70A221143E400DC64DD /* MovieData.swift */; };
 		9CFCA70E2211466F00DC64DD /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFCA70D2211466F00DC64DD /* ConfigManager.swift */; };
+		9CFCA71022114CF700DC64DD /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFCA70F22114CF700DC64DD /* String.swift */; };
 		B7F9CFF7C15E9DCE3C1E87C5 /* Pods_TheMovieDatabaseUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F42AE5FB3E81FE9268FAE76 /* Pods_TheMovieDatabaseUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		9CFCA7082211404100DC64DD /* MovieModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieModel.swift; sourceTree = "<group>"; };
 		9CFCA70A221143E400DC64DD /* MovieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieData.swift; sourceTree = "<group>"; };
 		9CFCA70D2211466F00DC64DD /* ConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
+		9CFCA70F22114CF700DC64DD /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		9DC0494C8F443C8C771EFD00 /* Pods-TheMovieDatabase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieDatabase.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheMovieDatabase/Pods-TheMovieDatabase.release.xcconfig"; sourceTree = "<group>"; };
 		D1443A8C0B33C006E572E0BC /* Pods-TheMovieDatabaseUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieDatabaseUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheMovieDatabaseUITests/Pods-TheMovieDatabaseUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -240,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				9CFCA7062211360800DC64DD /* DateFormatter.swift */,
+				9CFCA70F22114CF700DC64DD /* String.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 			files = (
 				9CFCA7092211404100DC64DD /* MovieModel.swift in Sources */,
 				9CFCA7072211360800DC64DD /* DateFormatter.swift in Sources */,
+				9CFCA71022114CF700DC64DD /* String.swift in Sources */,
 				9C9788A3220E6C390091306C /* MovieService.swift in Sources */,
 				9C978873220E4D3D0091306C /* MainViewController.swift in Sources */,
 				9CFCA70B221143E400DC64DD /* MovieData.swift in Sources */,

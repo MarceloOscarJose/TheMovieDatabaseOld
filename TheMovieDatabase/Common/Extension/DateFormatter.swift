@@ -6,9 +6,10 @@
 //  Copyright © 2019 Marcelo Oscar José. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 extension DateFormatter {
+
     static let iso8601: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -17,7 +18,8 @@ extension DateFormatter {
 
     static let longDate: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd MM, yyyy"
+        formatter.dateFormat = "MMMM d, yyyy"
+        formatter.locale = Locale(identifier: "es_ES")
         return formatter
     }()
 }

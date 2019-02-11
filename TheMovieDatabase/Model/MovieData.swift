@@ -35,6 +35,6 @@ class MovieData: NSObject {
         self.overview = movie.overview
 
         let formatter = DateFormatter.longDate
-        self.releaseDate = formatter.string(from: movie.releaseDate)
+        self.releaseDate = formatter.string(from: movie.releaseDate).capitalizedFirstLetter()
     }
 }

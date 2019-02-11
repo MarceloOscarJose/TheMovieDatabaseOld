@@ -20,6 +20,9 @@ class MainViewController: UIViewController {
     let cellTopPadding: CGFloat = 20.0
     let cellLeftRightPadding: CGFloat = 10.0
     let cellBottomPadding: CGFloat = 15.0
+    let minHeaderHeight: CGFloat = 70
+    let initialHeaderHeight: CGFloat = 170
+
     var containerView: PXStickyHeaderCollectionView!
 
     // Data vars
@@ -36,12 +39,10 @@ class MainViewController: UIViewController {
     }
 
     func setupControls() {
-        containerView = PXStickyHeaderCollectionView(initHeaderHeight: 200, minHeaderHeight: 150, headerView: MainHeaderView())
+        self.view.backgroundColor = UIColor.primaryColor
+        containerView = PXStickyHeaderCollectionView(initHeaderHeight: initialHeaderHeight, minHeaderHeight: minHeaderHeight, headerView: MainHeaderView())
         self.view.addSubview(containerView)
-        containerView.autoPinEdge(.top, to: .top, of: self.view, withOffset: 0)
-        containerView.autoPinEdge(.left, to: .left, of: self.view, withOffset: 0)
-        containerView.autoPinEdge(.right, to: .right, of: self.view, withOffset: 0)
-        containerView.autoPinEdge(.bottom, to: .bottom, of: self.view, withOffset: 0)
+        containerView.autoPinEdgesToSuperviewSafeArea()
 
         let cellNib = UINib(nibName: KCellClass, bundle: Bundle(for: MainViewController.self))
         containerView.collectionView.register(cellNib, forCellWithReuseIdentifier: KCellId)

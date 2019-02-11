@@ -13,7 +13,8 @@ class MainHeaderView: UIView {
 
     let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
-        searchBar.isTranslucent = true
+        searchBar.barTintColor = UIColor.primaryColor
+        searchBar.layer.borderColor = UIColor.primaryColor.cgColor
         return searchBar
     }()
 
@@ -28,12 +29,13 @@ class MainHeaderView: UIView {
     }
 
     func setupControls() {
+        self.backgroundColor = UIColor.primaryColor
         self.addSubview(searchBar)
         
     }
 
     func setupConstraints() {
-        searchBar.autoPinEdge(.top, to: .top, of: self, withOffset: 0)
+        searchBar.autoPinEdge(.bottom, to: .bottom, of: self, withOffset: -20)
         searchBar.autoPinEdge(.left, to: .left, of: self, withOffset: 0)
         searchBar.autoPinEdge(.right, to: .right, of: self, withOffset: 0)
     }

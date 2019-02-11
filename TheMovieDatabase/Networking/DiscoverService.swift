@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieService: NSObject {
+class DiscoverService: NSObject {
 
     let discoverURL = "discover/movie/"
 

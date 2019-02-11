@@ -11,7 +11,7 @@ import UIKit
 class MovieModel: NSObject {
 
     func getUpcommingMovies(responseHandler: @escaping (_ response: [MovieData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
-        let movieService = MovieService()
+        let movieService = DiscoverService()
         var movies: [MovieData] = []
 
         movieService.getUpcommingMovies(responseHandler: { (movieResult) in

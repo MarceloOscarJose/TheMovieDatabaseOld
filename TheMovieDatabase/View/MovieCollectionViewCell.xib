@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="MovieCollectionViewCell" customModule="TheMovieDatabase" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="583" height="186"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="583" height="186"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hHv-DH-Nr1">
+                        <rect key="frame" x="0.0" y="0.0" width="583" height="186"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IVh-yC-L6C">
+                                <rect key="frame" x="0.0" y="0.0" width="115" height="186"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="115" id="JSe-58-rRy"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Fate/stay night: Heaven’s Feel II. lost butterfly" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZeN-We-nMk">
+                                <rect key="frame" x="123" y="8" width="452" height="21.5"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="October 5, 2018" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OkY-Oe-skr">
+                                <rect key="frame" x="123" y="29.5" width="452" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="gZJ-gF-c8R"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y8w-rm-7jx">
+                                <rect key="frame" x="123" y="57.5" width="452" height="120.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="tEA-eF-INb"/>
+                                </constraints>
+                                <mutableString key="text">1941 - WWii. the second lieutenant Nikolai ivushkin, commander of a t-34, engages in an unequal battle against the tank ace Klaus Jager in a battle near moscow. His mission is more of a suicide - to destroy a dozen german tanks, all by himself. that said, luck does favour the bold. He wins the battle, barely survives, but loses his tank and lands himself in captivity for three long years... there was little to no chance for ivushkin and Jager to meet again, but the war knows how to throw a curve ball.in the spring of 1944, the Wehrmacht commands Jager to take charge of the ohrdruf re range and turn it into a training center for elite german armored forces, using the latest t-34 as a running target. this is how Jager and ivushkin cross paths again. Jager o ers ivushkin to become the commander of a legendary tank and pick his crew from fellow camp prisoners. Nothing goes according to plan, though, when ivushkin uses exercises for a daring and carefully planned escape.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OkY-Oe-skr" firstAttribute="leading" secondItem="IVh-yC-L6C" secondAttribute="trailing" constant="8" id="0gM-Fi-uFn"/>
+                            <constraint firstAttribute="trailing" secondItem="Y8w-rm-7jx" secondAttribute="trailing" constant="8" id="4Ui-pH-AUc"/>
+                            <constraint firstItem="IVh-yC-L6C" firstAttribute="top" secondItem="hHv-DH-Nr1" secondAttribute="top" id="BoC-3v-hgb"/>
+                            <constraint firstAttribute="trailing" secondItem="OkY-Oe-skr" secondAttribute="trailing" constant="8" id="JcM-WE-0lf"/>
+                            <constraint firstAttribute="bottom" secondItem="Y8w-rm-7jx" secondAttribute="bottom" constant="8" id="V0c-J5-hGu"/>
+                            <constraint firstItem="Y8w-rm-7jx" firstAttribute="leading" secondItem="IVh-yC-L6C" secondAttribute="trailing" constant="8" id="b9H-uw-blt"/>
+                            <constraint firstAttribute="bottom" secondItem="IVh-yC-L6C" secondAttribute="bottom" id="crh-j8-3mr"/>
+                            <constraint firstItem="ZeN-We-nMk" firstAttribute="leading" secondItem="IVh-yC-L6C" secondAttribute="trailing" constant="8" id="dwu-bS-TBh"/>
+                            <constraint firstItem="ZeN-We-nMk" firstAttribute="top" secondItem="hHv-DH-Nr1" secondAttribute="top" constant="8" id="eNa-jN-BOG"/>
+                            <constraint firstItem="OkY-Oe-skr" firstAttribute="top" secondItem="ZeN-We-nMk" secondAttribute="bottom" id="ghN-Bz-4GX"/>
+                            <constraint firstItem="Y8w-rm-7jx" firstAttribute="top" secondItem="OkY-Oe-skr" secondAttribute="bottom" constant="8" id="o1I-HO-3uE"/>
+                            <constraint firstAttribute="trailing" secondItem="ZeN-We-nMk" secondAttribute="trailing" constant="8" id="qhI-1V-YAu"/>
+                            <constraint firstItem="IVh-yC-L6C" firstAttribute="leading" secondItem="hHv-DH-Nr1" secondAttribute="leading" id="y9L-tJ-wz7"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="hHv-DH-Nr1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="9zV-rW-6e3"/>
+                <constraint firstAttribute="trailing" secondItem="hHv-DH-Nr1" secondAttribute="trailing" id="RzG-lv-Fzk"/>
+                <constraint firstItem="hHv-DH-Nr1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="UYq-Nb-uIk"/>
+                <constraint firstAttribute="bottom" secondItem="hHv-DH-Nr1" secondAttribute="bottom" id="VRS-Uh-fyE"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="583" height="186"/>
+            <connections>
+                <outlet property="overviewLabel" destination="Y8w-rm-7jx" id="goy-Ra-eFE"/>
+                <outlet property="releaseDateLabel" destination="OkY-Oe-skr" id="ghc-Nl-oo8"/>
+                <outlet property="titleLabel" destination="ZeN-We-nMk" id="oHV-J9-lou"/>
+            </connections>
+            <point key="canvasLocation" x="559.20000000000005" y="206.89655172413794"/>
+        </collectionViewCell>
+    </objects>
+</document>

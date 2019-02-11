@@ -8,13 +8,13 @@
 
 import UIKit
 
-class DiscoverService: NSObject {
+class DiscoverService: GeneralService {
 
     let discoverURL = "discover/movie/"
 
     func getUpcommingMovies(responseHandler: @escaping (_ response: MovieResult) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
         let parameters: [String: String] = ["primary_release_date.gte": "2019-02-8", "primary_release_date.lte": "2019-12-30", "sort_by": "popularity.desc"]
-        ServiceManager.sharedInstance.useService(url: self.discoverURL, paramaters: parameters as [String : AnyObject], responseHandler: { (data) in
+        self.executeRequest(url: self.discoverURL, paramaters: parameters as [String : AnyObject], responseHandler: { (data) in
             do {
                 let movieResult = try JSONDecoder().decode(MovieResult.self, from: data)
                 responseHandler(movieResult)

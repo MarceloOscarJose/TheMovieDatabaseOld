@@ -8,12 +8,9 @@
 
 import Alamofire
 
-class ServiceManager: NSObject {
+class GeneralService: NSObject {
 
-    // Singleton instance
-    static let sharedInstance = ServiceManager()
-
-    public func useService(url: String, paramaters: [String: AnyObject], responseHandler: @escaping (_ response: Data) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+    public func executeRequest(url: String, paramaters: [String: AnyObject], responseHandler: @escaping (_ response: Data) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
         let headers = [
             "Content-Type": "application/json;charset=utf-8",
             "Accept": "application/json",
@@ -24,11 +21,11 @@ class ServiceManager: NSObject {
         params["language"] = "es-ES" as AnyObject
 
         if let finalURL = URL(string: "\(ConfigManager.sharedInstance.baseURL)\(url)") {
-            self.useService(method: .get, url: finalURL, paramaters: params, headers: headers, responseHandler: responseHandler, errorHandler: errorHandler)
+            self.executeRequest(method: .get, url: finalURL, paramaters: params, headers: headers, responseHandler: responseHandler, errorHandler: errorHandler)
         }
     }
 
-    private func useService(method: Alamofire.HTTPMethod, url: URL, paramaters: [String: AnyObject]?, headers: [String: String], responseHandler: @escaping (_ response: Data) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+    private func executeRequest(method: Alamofire.HTTPMethod, url: URL, paramaters: [String: AnyObject]?, headers: [String: String], responseHandler: @escaping (_ response: Data) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
 
         Alamofire.request(url, method: method, parameters: paramaters, encoding: URLEncoding.default, headers: headers).response(completionHandler: { (response) in
 

@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
     let KCellClass = "MovieCollectionViewCell"
 
     // UI Vars
+    let cellTopPadding: CGFloat = 20.0
     let cellLeftRightPadding: CGFloat = 10.0
     let cellBottomPadding: CGFloat = 15.0
     var containerView: PXStickyHeaderCollectionView!
@@ -35,7 +36,7 @@ class MainViewController: UIViewController {
     }
 
     func setupControls() {
-        containerView = PXStickyHeaderCollectionView(initHeaderHeight: 200, minHeaderHeight: 50, headerView: UIView())
+        containerView = PXStickyHeaderCollectionView(initHeaderHeight: 200, minHeaderHeight: 150, headerView: MainHeaderView())
         self.view.addSubview(containerView)
         containerView.autoPinEdge(.top, to: .top, of: self.view, withOffset: 0)
         containerView.autoPinEdge(.left, to: .left, of: self.view, withOffset: 0)
@@ -96,7 +97,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: self.cellLeftRightPadding, bottom: 15, right: self.cellLeftRightPadding)
+        return UIEdgeInsets(top: cellTopPadding, left: self.cellLeftRightPadding, bottom: 15, right: self.cellLeftRightPadding)
     }
 
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

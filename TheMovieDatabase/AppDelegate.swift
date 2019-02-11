@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UINavigationControllerDel
 
         if let mainNavigationController = self.mainNavigationController {
             mainNavigationController.delegate = self
-            mainNavigationController.setNavigationBarHidden(false, animated:false)
+            mainNavigationController.setNavigationBarHidden(true, animated:false)
             mainNavigationController.pushViewController(MainViewController(), animated:true)
 
             self.window = UIWindow(frame: UIScreen.main.bounds)

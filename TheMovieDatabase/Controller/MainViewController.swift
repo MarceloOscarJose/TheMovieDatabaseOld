@@ -25,12 +25,9 @@ class MainViewController: UIViewController {
     var containerView: PXStickyHeaderCollectionView!
 
     // Data vars
+    let movieModel = MovieModel()
     var moviesData: [MovieData] = []
-
-    /*let containerView: UIView = {
-        let containerView = UIView()
-        return containerView
-    }()*/
+    var nextPage: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,10 +47,14 @@ class MainViewController: UIViewController {
     }
 
     func getMovies() {
-        let movieModel = MovieModel()
-        movieModel.getUpcommingMovies(responseHandler: { (movies) in
-            self.moviesData = movies
-            self.setupControls()
+        movieModel.getUpcommingMovies(nextPage: self.nextPage, responseHandler: { (movies) in
+            self.moviesData.append(contentsOf: movies)
+
+            if self.containerView == nil {
+                self.setupControls()
+            } else {
+                self.containerView.collectionView.reloadData()
+            }
         }) { (error) in
             print(error!)
         }
@@ -97,7 +98,8 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
 
     public func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == self.moviesData.count - 1 {
-            print("Debería refrescar más datos")
+            self.nextPage = true
+            self.getMovies()
         }
     }
 }

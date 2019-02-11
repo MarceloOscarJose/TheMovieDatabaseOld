@@ -19,6 +19,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        imageContainer.backgroundColor = UIColor.imageColor
         addShadow()
     }
 
@@ -30,19 +31,19 @@ class MovieCollectionViewCell: UICollectionViewCell {
         containerView.layer.shadowRadius = 5
     }
 
-    func updateCellData(image: String, title: String, releaseDate: String, overview: String) {
+    func updateCellData(image: String?, title: String, releaseDate: String, overview: String) {
 
         titleLabel.text = title
         releaseDateLabel.text = releaseDate
         overviewLabel.text = overview != "" ? overview : "Sin descripción".localized
 
-        let url = URL(string: image)!
         let placeholderImage = UIImage(named: "ImagePlaceholder")!
 
-        imageContainer.af_setImage(
-            withURL: url,
-            placeholderImage: placeholderImage,
-            imageTransition: .crossDissolve(0.2)
-        )
+        if let img = image {
+            let url = URL(string: img)!
+            imageContainer.af_setImage(withURL: url, placeholderImage: placeholderImage, imageTransition:.crossDissolve(0.2))
+        } else {
+            imageContainer.image = UIImage(named: "NoImage")!
+        }
     }
 }

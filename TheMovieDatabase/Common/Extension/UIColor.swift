@@ -21,4 +21,8 @@ extension UIColor {
     class var shadowColor: UIColor {
         return UIColor(red: 218.0 / 255.0, green: 218.0 / 255.0, blue: 218.0 / 255.0, alpha: 1.0)
     }
+
+    class var imageColor: UIColor {
+        return UIColor(red: 218.0 / 255.0, green: 218.0 / 255.0, blue: 218.0 / 255.0, alpha: 1.0)
+    }
 }

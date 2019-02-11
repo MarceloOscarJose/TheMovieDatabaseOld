@@ -15,7 +15,7 @@ class MovieData: NSObject {
     var votes: Int
     var voteAverage: Double
     var popularity: Double
-    var poster: String
+    var poster: String?
     var backdrop: String?
     var overview: String
     var releaseDate: String
@@ -26,8 +26,10 @@ class MovieData: NSObject {
         self.votes = movie.voteCount
         self.voteAverage = movie.voteAverage
         self.popularity = movie.popularity
-        self.poster = "\(ConfigManager.sharedInstance.imagesURL)\(movie.posterPath)"
 
+        if let posterImage = movie.posterPath {
+            self.poster = "\(ConfigManager.sharedInstance.imagesURL)\(posterImage)"
+        }
         if let backdrop = movie.backdropPath {
             self.backdrop = "\(ConfigManager.sharedInstance.imagesURL)\(backdrop)"
         }

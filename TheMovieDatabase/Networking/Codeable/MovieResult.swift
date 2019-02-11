@@ -31,7 +31,7 @@ struct MovieResult: Codable {
         var voteAverage: Double
         var title: String
         var popularity: Double
-        var posterPath: String
+        var posterPath: String?
         var originalLanguage: String
         var originalTitle: String
         var backdropPath: String?
@@ -67,7 +67,7 @@ extension MovieResult.Movie {
         voteAverage = try container.decode(Double.self, forKey: .voteAverage)
         title = try container.decode(String.self, forKey: .title)
         popularity = try container.decode(Double.self, forKey: .popularity)
-        posterPath = try container.decode(String.self, forKey: .posterPath)
+        posterPath = try? container.decode(String.self, forKey: .posterPath)
         originalLanguage = try container.decode(String.self, forKey: .originalLanguage)
         originalTitle = try container.decode(String.self, forKey: .originalTitle)
         backdropPath = try? container.decode(String.self, forKey: .backdropPath)

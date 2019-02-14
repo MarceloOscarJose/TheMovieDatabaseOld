@@ -49,6 +49,8 @@ class MovieModel: NSObject {
                 moviePageData.isFinalPage = true
                 return true
             }
+
+            return false
         }
 
         return true

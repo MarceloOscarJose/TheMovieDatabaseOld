@@ -49,7 +49,7 @@ class MainViewController: UIViewController {
 
     func getMovies() {
         movieModel.getUpcommingMovies(nextPage: self.nextPage, responseHandler: { (movies) in
-            self.moviesData.append(contentsOf: movies)
+            self.moviesData = movies
             self.containerView.collectionView.reloadData()
         }) { (error) in
             print(error!)

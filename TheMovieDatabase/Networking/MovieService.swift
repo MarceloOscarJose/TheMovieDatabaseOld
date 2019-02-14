@@ -8,12 +8,14 @@
 
 import UIKit
 
-class DiscoverService: GeneralService {
+class MovieService: GeneralService {
 
-    let discoverURL = "discover/movie/"
+    let upcommingURL = "movie/upcoming/"
 
-    func fetchDiscoverService(parameters: [String: String], responseHandler: @escaping (_ response: MovieResult) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
-        self.executeRequest(url: self.discoverURL, paramaters: parameters as [String : AnyObject], responseHandler: { (data) in
+    func fetchUpcommingService(page: Int, responseHandler: @escaping (_ response: MovieResult) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
+
+        let parameters: [String: String] = ["region": "US", "page": "\(page)"]
+        self.executeRequest(url: self.upcommingURL, paramaters: parameters as [String : AnyObject], responseHandler: { (data) in
             do {
                 let movieResult = try JSONDecoder().decode(MovieResult.self, from: data)
                 responseHandler(movieResult)

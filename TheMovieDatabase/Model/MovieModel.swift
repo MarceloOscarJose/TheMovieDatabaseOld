@@ -10,52 +10,47 @@ import UIKit
 
 class MovieModel: NSObject {
 
-    var maxPages: Int = 2
-    var currentPage: Int = 1
+    var movies: [MovieData] = []
+    let movieService = MovieService()
+
+    var moviePageData: [String: PageData] = [
+        "popular": PageData(),
+        "toprated": PageData(),
+        "upcomming": PageData()
+    ]
 
     func getUpcommingMovies(nextPage: Bool, responseHandler: @escaping (_ response: [MovieData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
-        if nextPage && maxPages > self.currentPage {
-            self.currentPage += 1
-            print(self.currentPage)
-        }
 
-        if maxPages > self.currentPage {
-            fetchUpcommingMoviews(responseHandler: responseHandler, errorHandler: errorHandler)
+        if let pageData = moviePageData["upcomming"] {
+            if checkServicePage(moviePageData: pageData, nextPage: nextPage) {
+
+                movieService.fetchUpcommingService(page: pageData.currentPage, responseHandler: { (movieResult) in
+                    pageData.maxPages = movieResult.totalPages
+                    for movie in movieResult.results {
+                        self.movies.append(MovieData(movie: movie))
+                    }
+
+                    responseHandler(self.movies)
+                }) { (error) in
+                    errorHandler(error)
+                }
+            }
         }
     }
 
-    private func fetchUpcommingMoviews(responseHandler: @escaping (_ response: [MovieData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
-        let discoverService = DiscoverService()
-        var movies: [MovieData] = []
-
-        let formatter = DateFormatter.iso8601
-        let dateGTE = formatter.string(from: Date())
-        var dateLTE = ""
-
-        var dateComponent = DateComponents()
-        dateComponent.month = 1
-
-        if let lteDateData = Calendar.current.date(byAdding: dateComponent, to: Date()) {
-            dateLTE = formatter.string(from: lteDateData)
+    func checkServicePage(moviePageData: PageData, nextPage: Bool) -> Bool {
+        if nextPage && moviePageData.maxPages > moviePageData.currentPage {
+            moviePageData.currentPage += 1
+            print(moviePageData.currentPage)
         }
 
-        let parameters: [String: String] = [
-            "primary_release_date.gte": dateGTE,
-            "primary_release_date.lte": dateLTE,
-            "sort_by": "popularity.desc",
-            "region": "US",
-            "page": "\(self.currentPage)"
-        ]
-
-        discoverService.fetchDiscoverService(parameters: parameters, responseHandler: { (movieResult) in
-            self.maxPages = movieResult.totalPages
-            for movie in movieResult.results {
-                movies.append(MovieData(movie: movie))
+        if moviePageData.maxPages == moviePageData.currentPage {
+            if !moviePageData.isFinalPage {
+                moviePageData.isFinalPage = true
+                return true
             }
-
-            responseHandler(movies)
-        }) { (error) in
-            errorHandler(error)
         }
+
+        return true
     }
 }

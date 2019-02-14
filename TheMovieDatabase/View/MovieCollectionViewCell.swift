@@ -13,6 +13,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var imageContainer: UIImageView!
+    @IBOutlet weak var imageWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
@@ -41,9 +42,12 @@ class MovieCollectionViewCell: UICollectionViewCell {
 
         if let img = image {
             let url = URL(string: img)!
-            imageContainer.af_setImage(withURL: url, placeholderImage: placeholderImage, imageTransition:.crossDissolve(0.2))
+            imageContainer.af_setImage(withURL: url, placeholderImage: placeholderImage, filter: nil, progress: nil, progressQueue: DispatchQueue.main, imageTransition: .crossDissolve(0.2), runImageTransitionIfCached: true) { (imageData) in
+                self.imageWidthConstraint.constant = self.imageContainer.getImageWidth(height: self.frame.height)
+            }
         } else {
             imageContainer.image = UIImage(named: "NoImage")!
+            imageWidthConstraint.constant = imageContainer.getImageWidth(height: self.frame.height)
         }
     }
 }

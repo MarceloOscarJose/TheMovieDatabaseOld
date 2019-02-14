@@ -31,6 +31,7 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupControls()
         getMovies()
     }
 
@@ -49,15 +50,17 @@ class MainViewController: UIViewController {
     func getMovies() {
         movieModel.getUpcommingMovies(nextPage: self.nextPage, responseHandler: { (movies) in
             self.moviesData.append(contentsOf: movies)
-
-            if self.containerView == nil {
-                self.setupControls()
-            } else {
-                self.containerView.collectionView.reloadData()
-            }
+            self.containerView.collectionView.reloadData()
         }) { (error) in
             print(error!)
         }
+    }
+
+    func showMovieDetail(movieData: MovieData) {
+        let movieDetailViewController = MovieDetailViewController(movieData: movieData)
+        movieDetailViewController.modalPresentationStyle = .overCurrentContext
+        movieDetailViewController.modalTransitionStyle = .crossDissolve
+        self.navigationController?.present(movieDetailViewController, animated: true, completion: nil)
     }
 }
 
@@ -71,7 +74,7 @@ extension MainViewController: UICollectionViewDataSource, UICollectionViewDelega
     }
 
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Selected item")
+        self.showMovieDetail(movieData: self.moviesData[indexPath.item])
     }
 
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

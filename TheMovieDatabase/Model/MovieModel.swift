@@ -10,7 +10,7 @@ import UIKit
 
 class MovieModel: NSObject {
 
-    var maxPages: Int = 0
+    var maxPages: Int = 2
     var currentPage: Int = 1
 
     func getUpcommingMovies(nextPage: Bool, responseHandler: @escaping (_ response: [MovieData]) -> Void, errorHandler: @escaping (_ error: Error?) -> Void) {
@@ -22,15 +22,17 @@ class MovieModel: NSObject {
             print(self.currentPage)
         }
 
-        discoverService.getUpcommingMovies(page: self.currentPage, responseHandler: { (movieResult) in
-            self.maxPages = movieResult.totalPages
-            for movie in movieResult.results {
-                movies.append(MovieData(movie: movie))
-            }
+        if maxPages > self.currentPage {
+            discoverService.getUpcommingMovies(page: self.currentPage, responseHandler: { (movieResult) in
+                self.maxPages = movieResult.totalPages
+                for movie in movieResult.results {
+                    movies.append(MovieData(movie: movie))
+                }
 
-            responseHandler(movies)
-        }) { (error) in
-            errorHandler(error)
+                responseHandler(movies)
+            }) { (error) in
+                errorHandler(error)
+            }
         }
     }
 }

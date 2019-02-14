@@ -10,8 +10,21 @@ import AlamofireImage
 
 extension UIImageView {
 
-    public func imageFromServerURL(urlString: String) {
-        let url = URL(string: urlString)
-        self.af_setImage(withURL: url!, imageTransition: .crossDissolve(0.3))
+    public func getImageHeight(width: CGFloat) -> CGFloat {
+        var height: CGFloat = 0.0
+        if let image = self.image {
+            height = width * image.size.height / image.size.width
+        }
+
+        return height
+    }
+
+    public func getImageWidth(height: CGFloat) -> CGFloat {
+        var width: CGFloat = 0.0
+        if let image = self.image {
+            width = height * image.size.width / image.size.height
+        }
+
+        return width
     }
 }

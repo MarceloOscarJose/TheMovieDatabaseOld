@@ -16,6 +16,8 @@
 		9C978886220E4D3F0091306C /* TheMovieDatabaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C978885220E4D3F0091306C /* TheMovieDatabaseTests.swift */; };
 		9C978891220E4D3F0091306C /* TheMovieDatabaseUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C978890220E4D3F0091306C /* TheMovieDatabaseUITests.swift */; };
 		9C9788A3220E6C390091306C /* DiscoverService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9788A2220E6C390091306C /* DiscoverService.swift */; };
+		9CDEAA012213132700AB7E65 /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDEAA002213132700AB7E65 /* MovieDetailViewController.swift */; };
+		9CDEAA072213245100AB7E65 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CDEAA062213245100AB7E65 /* MovieDetailView.swift */; };
 		9CFCA6FE2211001600DC64DD /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFCA6FD2211001600DC64DD /* ServiceManager.swift */; };
 		9CFCA701221100D800DC64DD /* Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9CFCA700221100D800DC64DD /* Config.plist */; };
 		9CFCA70422111D4A00DC64DD /* MovieResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CFCA70322111D4A00DC64DD /* MovieResult.swift */; };
@@ -70,6 +72,8 @@
 		9C978890220E4D3F0091306C /* TheMovieDatabaseUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieDatabaseUITests.swift; sourceTree = "<group>"; };
 		9C978892220E4D3F0091306C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C9788A2220E6C390091306C /* DiscoverService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverService.swift; sourceTree = "<group>"; };
+		9CDEAA002213132700AB7E65 /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
+		9CDEAA062213245100AB7E65 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 		9CFCA6FD2211001600DC64DD /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		9CFCA700221100D800DC64DD /* Config.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Config.plist; sourceTree = "<group>"; };
 		9CFCA70322111D4A00DC64DD /* MovieResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieResult.swift; sourceTree = "<group>"; };
@@ -198,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				9C978872220E4D3D0091306C /* MainViewController.swift */,
+				9CDEAA002213132700AB7E65 /* MovieDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 				9CFCA711221153B100DC64DD /* MovieCollectionViewCell.swift */,
 				9CFCA712221153B100DC64DD /* MovieCollectionViewCell.xib */,
 				9CFCA71B22117A1F00DC64DD /* MainHeaderView.swift */,
+				9CDEAA062213245100AB7E65 /* MovieDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -486,6 +492,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CFCA7092211404100DC64DD /* MovieModel.swift in Sources */,
+				9CDEAA012213132700AB7E65 /* MovieDetailViewController.swift in Sources */,
 				9CFCA71622115CDB00DC64DD /* UIColor.swift in Sources */,
 				9CFCA71C22117A1F00DC64DD /* MainHeaderView.swift in Sources */,
 				9CFCA7072211360800DC64DD /* DateFormatter.swift in Sources */,
@@ -498,6 +505,7 @@
 				9CFCA6FE2211001600DC64DD /* ServiceManager.swift in Sources */,
 				9CFCA713221153B100DC64DD /* MovieCollectionViewCell.swift in Sources */,
 				9CFCA70422111D4A00DC64DD /* MovieResult.swift in Sources */,
+				9CDEAA072213245100AB7E65 /* MovieDetailView.swift in Sources */,
 				9C978871220E4D3D0091306C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
